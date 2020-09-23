@@ -1,0 +1,27 @@
+#### general settings
+name: test_csrnet
+suffix: ~  # add suffix to saved images
+model: sr
+distortion: sr
+scale: 1
+gpu_ids: [0]
+
+datasets:
+  val:
+    name: MIT_fivek_500
+    mode: LQGT_enhance
+    dataroot_GT: ../datasets/expert_C_test
+    dataroot_LQ: ../datasets/raw_input_test
+  
+#### network structures
+network_G:
+  which_model_G: CSRNet
+  in_nc: 3
+  out_nc: 3
+  base_nf: 64
+  cond_nf: 32
+
+#### path
+path:
+  root: 
+  pretrain_model_G: ../experiments/pretrain_models/csrnet.pth

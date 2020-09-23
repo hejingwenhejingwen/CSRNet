@@ -1,0 +1,25 @@
+name: test_base_blur2_noise30
+suffix: ~  # add suffix to saved images
+model: sr
+distortion: sr
+scale: 1
+gpu_ids: [0]
+
+datasets:
+  test_1:  # the 1st test dataset
+    name: blur20_noise30
+    mode: LQGT
+    dataroot_GT: ../datasets/val/blur0_noise0
+    dataroot_LQ: ../datasets/val/blur20_noise30
+
+#### network structures
+network_G:
+  which_model_G: BaseNet # CResMDNet | BaseNet
+  in_nc: 3
+  out_nc: 3
+  nf: 64
+  nb: 32
+
+#### path
+path:
+  pretrain_model_G: ~

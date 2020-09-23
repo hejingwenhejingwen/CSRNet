@@ -2,11 +2,40 @@
 By Jingwen He*, Yihao Liu*, [Yu Qiao](http://mmlab.siat.ac.cn/yuqiao/), and [Chao Dong](https://scholar.google.com.hk/citations?user=OSDCB0UAAAAJ&hl=en) (* indicates equal contribution)
 
 
+## Dependencies and Installation
+
+- Python 3 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux))
+- [PyTorch >= 1.0](https://pytorch.org/)
+- NVIDIA GPU + [CUDA](https://developer.nvidia.com/cuda-downloads)
+- Python packages: `pip install numpy opencv-python lmdb pyyaml`
+- TensorBoard:
+  - PyTorch >= 1.1: `pip install tb-nightly future`
+  - PyTorch == 1.0: `pip install tensorboardX`
+
+
 ## Datasets
 
 Here, we provide the preprocessed datasets: [MIT-Adobe FiveK dataset](https://drive.google.com/drive/folders/1qrGLFzW7RBlBO1FqgrLPrq9p2_p11ZFs?usp=sharing), which contains both training pairs and testing pairs.
 
-## Abstract
 
-Photo retouching aims at improving the aesthetic visual quality of images that suffer from photographic defects such as over/under exposure, poor contrast, inharmonious saturation. In practice, photo retouching can be accomplished by a series of image processing operations. As most commonly-used retouching operations are pixelindependent, we can take advantage of this property and design a specialized algorithm for efficient global photo retouching. We first analyze these global operations and find that they can be mathematically formulated by a Multi-Layer Perceptron (MLP). Based on this observation, we propose an extremely light-weight framework - Conditional Sequential Retouching Network (CSRNet). CSRNet consists of a base network and a condition network. The base network acts like an MLP that processes each pixel independently, while the condition network extracts the global features of the input image to generate a condition vector. To realize retouching operations, we modulate the intermediate features using Global Feature
-Modulation (GFM), of which the parameters are transformed by the condition vector. Benefiting from the utilization of 1 × 1 convolution, CSRNet only contains less than 37k trainable parameters, which are orders of magnitude smaller than existing learning-based methods. Extensive experiments show that our method achieves state-of-the-art performance on the benchmark MIT-Adobe FiveK dataset quantitively and qualitatively.
+## How to Test
+1. Modify the configuration file [`options/test/test_Enhance.yml`](codes/options/test/test_Enhance.yml). e.g., `dataroot_GT`, `dataroot_LQ`, and `pretrain_model_G`.
+1. Run command:
+```c++
+python test_CSRNet.py -opt options/test/test_Enhance.yml
+```
+1. Modify the python file [`calculate_metrics.py`](codes/calculate_metrics.py): `input_path`, `GT_path` (Line 139, 140). Then run:
+```c++
+python calculate_metrics.py
+```
+
+## How to Train
+1. Modify the configuration file [`options/train/train_Enhance.yml`](codes/options/train/train_Enhance.yml). e.g., `dataroot_GT`, `dataroot_LQ`.
+1. Run command:
+```c++
+python train.py -opt options/train/train_Enhance.yml
+```
+
+## Acknowledgement
+
+- This code is based on [mmsr](https://github.com/open-mmlab/mmsr). 
