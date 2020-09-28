@@ -33,7 +33,7 @@ class CSRNet(nn.Module):
         self.base_nf = base_nf
         self.out_nc = out_nc
 
-        self.cond_net = Condition()
+        self.cond_net = Condition(in_nc=in_nc, nf=cond_nf)
       
         self.cond_scale1 = nn.Linear(cond_nf, base_nf, bias=True)
         self.cond_scale2 = nn.Linear(cond_nf, base_nf,  bias=True)

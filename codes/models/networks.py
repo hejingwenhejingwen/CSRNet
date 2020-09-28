@@ -3,8 +3,6 @@ import models.archs.SRResNet_arch as SRResNet_arch
 import models.archs.discriminator_vgg_arch as SRGAN_arch
 import models.archs.RRDBNet_arch as RRDBNet_arch
 # import models.archs.EDVR_arch as EDVR_arch
-import models.archs.AdaFMNet_arch as AdaFMNet_arch
-import models.archs.CResMDNet_arch as CResMDNet_arch
 import models.archs.CSRNet_arch as CSRNet_arch
 
 

@@ -2,6 +2,28 @@
 By Jingwen He*, Yihao Liu*, [Yu Qiao](http://mmlab.siat.ac.cn/yuqiao/), and [Chao Dong](https://scholar.google.com.hk/citations?user=OSDCB0UAAAAJ&hl=en) (* indicates equal contribution)
 
 
+<p align="center"> 
+  
+  <img src="figures/csrnet_fig1.png">
+  
+</p>
+
+
+<p align="center"> 
+  
+  <img src="figures/csrnet_fig6.png">
+  
+</p>
+
+### BibTex
+@article{he2020conditional,
+  title={Conditional Sequential Modulation for Efficient Global Image Retouching},
+  author={He, Jingwen and Liu, Yihao and Qiao, Yu and Dong, Chao},
+  journal={arXiv preprint arXiv:2009.10390},
+  year={2020}
+}
+
+
 ## Dependencies and Installation
 
 - Python 3 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux))
@@ -16,10 +38,12 @@ By Jingwen He*, Yihao Liu*, [Yu Qiao](http://mmlab.siat.ac.cn/yuqiao/), and [Cha
 ## Datasets
 
 Here, we provide the preprocessed datasets: [MIT-Adobe FiveK dataset](https://drive.google.com/drive/folders/1qrGLFzW7RBlBO1FqgrLPrq9p2_p11ZFs?usp=sharing), which contains both training pairs and testing pairs.
-
+- training pairs: {GT: expert_C_train; Input: raw_input_train}
+- testing pairs: {GT: expert_C_test; Input: raw_input_test}
 
 ## How to Test
 1. Modify the configuration file [`options/test/test_Enhance.yml`](codes/options/test/test_Enhance.yml). e.g., `dataroot_GT`, `dataroot_LQ`, and `pretrain_model_G`.
+(We provide a pretrained model in [`experiments/pretrain_models/csrnet.pth`](experiments/pretrain_models/))
 1. Run command:
 ```c++
 python test_CSRNet.py -opt options/test/test_Enhance.yml
@@ -39,3 +63,4 @@ python train.py -opt options/train/train_Enhance.yml
 ## Acknowledgement
 
 - This code is based on [mmsr](https://github.com/open-mmlab/mmsr). 
+- Thanks Yihao Liu for part of this work.
