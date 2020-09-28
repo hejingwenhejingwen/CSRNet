@@ -3,24 +3,23 @@ By Jingwen He*, Yihao Liu*, [Yu Qiao](http://mmlab.siat.ac.cn/yuqiao/), and [Cha
 
 
 <p align="center"> 
-  
-  <img height="200"  src="figures/csrnet_fig1.png">
+  <img height="400"  src="figures/csrnet_fig1.png">
+</p>
 <b>Left</b>: Compared with existing state-of-the-art methods, our method achieves
 superior performance with extremely few parameters (1/13 of HDRNet and 1/250
 of White-Box). The diameter of the circle represents the amount of trainable
 parameters. <b>Right</b>: Image retouching examples. 
 
-</p>
-
 
 <p align="center"> 
   
-  <img height="200" src="figures/csrnet_fig6.png">
+  <img height="300" src="figures/csrnet_fig6.png">
+
+</p>
 The first row shows smooth transition effects between different styles (expert A
 to B) by image interpolation. In the second row, we use image interpolation to control
 the retouching strength from input image to the automatic retouched result. We denote
 the interpolation coefficient α for each image.
-</p>
 
 ### BibTex
     @article{he2020conditional,
